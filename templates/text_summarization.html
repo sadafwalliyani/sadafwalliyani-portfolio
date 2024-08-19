@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Summarization</title>
+</head>
+<body>
+    <h1>Text Summarization</h1>
+    <textarea id="input-text" rows="10" cols="50"></textarea>
+    <br>
+    <button onclick="summarizeText()">Summarize</button>
+    <br>
+    <textarea id="output-text" rows="10" cols="50"></textarea>
+    <script>
+        async function summarizeText() {
+        const inputText = document.getElementById("input-text").value;
+
+        // Load the Hugging Face model
+        const model = await transformers.AutoModelForSeq2Seq.fromPretrained('./path_to_your_model_directory');
+        const tokenizer = await transformers.AutoTokenizer.fromPretrained('./path_to_your_model_directory');
+
+        // Tokenize and generate a summary
+        const inputs = tokenizer(inputText, { return_tensors: "pt" });
+        const output = await model.generate(inputs.input_ids);
+
+        // Decode the generated summary
+        const summary = tokenizer.decode(output[0], { skip_special_tokens: true });
+
+        // Display the summary in the output text box
+        document.getElementById("output-text").value = summary;
+    }
+</script>
+</body>
+</html>

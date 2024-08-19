@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CV Review</title>
+</head>
+<body>
+    <h1>CV Review</h1>
+    <input type="file" id="cv-upload" accept=".pdf, .docx">
+    <br>
+    <button onclick="reviewCV()">Review CV</button>
+    <br>
+    <textarea id="feedback" rows="10" cols="50" readonly></textarea>
+    <script>
+        async function reviewCV() {
+            const cvInput = document.getElementById("cv-upload").files[0];
+            const feedbackTextArea = document.getElementById("feedback");
+    
+            if (cvInput) {
+                // Check if the file type is supported (e.g., PDF or DOCX)
+                if (cvInput.type === "application/pdf" || cvInput.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
+                    const reader = new FileReader();
+    
+                    reader.onload = async function () {
+                        const cvContent = reader.result; // CV content as ArrayBuffer
+    
+                        // Send the cvContent to your Hugging Face LLM model for review
+                        // You would need to load and use the appropriate model and tokenizer
+    
+                        // Example:
+                        const model = await transformers.AutoModelForCausalLM.fromPretrained('your_model_name_or_path');
+                        const tokenizer = await transformers.AutoTokenizer.fromPretrained('your_tokenizer_name_or_path');
+    
+                        // Tokenize and generate feedback
+                        const inputs = tokenizer.decode(model.generate(tokenizer.encode(cvContent)), { skip_special_tokens: true });
+    
+                        // Display the feedback in the text area
+                        feedbackTextArea.value = inputs;
+                    };
+    
+                    reader.readAsArrayBuffer(cvInput);
+                } else {
+                    feedbackTextArea.value = "Unsupported file type. Please upload a PDF or DOCX file.";
+                }
+            } else {
+                feedbackTextArea.value = "Please select a file to upload.";
+            }
+        }
+    </script>
+    
+</body>
+</html>
