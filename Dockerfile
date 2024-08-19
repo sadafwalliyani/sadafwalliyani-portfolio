@@ -1,31 +1,20 @@
-## Use the oicial Python 3.9 image 
-FROM python:3.9
+# Use an official Python runtime as a parent image
+FROM python:3.10-slim
 
-## Ser up working DIR to /code
+# Set the working directory in the container
+WORKDIR /app
 
-WORKDIR /code
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-## Copy the current dir contetnt in the container at /code
-COPY ./requirements.txt /code/requirements.txt
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-## Install the requirments.txt
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+# Make port 80 available to the world outside this container
+EXPOSE 80
 
-## Set up a user named "user"
-RUN useradd user
+# Define environment variable
+ENV NAME World
 
-## Switch to the "user" user
-USER user
-
-## Set home to the user's home directory 
-ENV HOME=/home/user\
-    PATH=/home/user/.local/bin:$PATH
-
-## set the working directory to the users home directory
-WORKDIR $HOME/app
-
-##copy the current directory content into the container at Home/app
-COPY --chown=user . $HOME/app/
-
-## Start the astAPI app on the port
-CMD ["uvicorn", "app:app","--host","0.0.0.0", "--port"," 7860"]
+# Run app.py when the container launches
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
