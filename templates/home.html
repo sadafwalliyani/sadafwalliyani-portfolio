@@ -4,30 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
 </head>
 <body>
   <header class="text-gray-600 body-font">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
       <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24"> -->
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-        </svg>
-        <span 
-        class="ml-3 text-xl" style="color: rgb(86, 86, 202);">Sadaf Walliyani</span>
+        <span class="ml-3 text-xl" style="color: rgb(86, 86, 202);">Sadaf Walliyani</span>
       </a>
-      <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-        <a href="home.html" class="mr-5 hover:text-gray-900">Home</a>
-        <a href="AI_models.html"  class="mr-5 hover:text-gray-900">AI_Models</a>
-        <a href="about_us.html"  class="mr-5 hover:text-gray-900">About_Us</a>
-        
-      </nav>
-      <button onclick="window.location.href='contact_us.html';"
+      <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
+        <a href="/" class="mr-5 hover:text-gray-900">Home</a>
+        <a href="/AI_models" class="mr-5 hover:text-gray-900">AI Models</a>
+        <a href="/about_us" class="mr-5 hover:text-gray-900">About Us</a>
+        </nav>
+      <button onclick="window.location.href='/contact_us';"
       class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Contact Us
         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
           <path d="M5 12h14M12 5l7 7-7 7"></path>
-          
         </svg>
-      
       </button>
     </div>
   </header>
@@ -36,21 +30,21 @@
       <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
         <h1 style="color: rgb(86, 86, 202);" 
         class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
-        👋 Hello!
-          I'm Sadaf Walliyani
-                   <br class="hidden lg:inline-block"> Generative AI Developer
-                          </h1>
+        👋 Hello! I'm Sadaf Walliyani
+        <br class="hidden lg:inline-block"> Generative AI Developer
+        </h1>
         <p align="justify" class="mb-8 leading-relaxed"> 
           Welcome to my website! I'm thrilled to have you here. As an experienced developer specializing in Machine Learning (ML) and Deep Learning (DL), I focus on Hugging Face Prompt Engineering and Generative AI. My passion is leveraging AI to create innovative applications and solutions that push the boundaries of what's possible.
-          With a strong background in data analysis and visualization, I provide top-tier services in ML and DL to help your projects shine. Whether it's building powerful models or ensuring timely delivery with 100% satisfaction, I'm here to turn your ideas into reality. Let's unlock the full potential of AI together! 🚀✨</p>
+          With a strong background in data analysis and visualization, I provide top-tier services in ML and DL to help your projects shine. Whether it's building powerful models or ensuring timely delivery with 100% satisfaction, I'm here to turn your ideas into reality. Let's unlock the full potential of AI together! 🚀✨
+        </p>
         <div class="flex justify-center">
-          <button  onclick="window.location.href='my_work.html';"
+          <button onclick="window.location.href='/my_work';"
           class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Portfolio</button>
           <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">My CV</button>
         </div>
       </div>
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-        <img class="object-cover object-center rounded" alt="hero" src=r"D:\sadafwalliyani-portfolio\images\home.jpg">
+        <img class="object-cover object-center rounded" alt="hero" src="/static/images/home.jpg">
       </div>
     </div>
   </section>
