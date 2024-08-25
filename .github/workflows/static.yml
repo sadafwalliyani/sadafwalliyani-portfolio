@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+Cname: Deploy to GitHub Pages
 
 # Run workflow on every push to main branch.
 on:
@@ -32,7 +32,7 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           
           # Name of the heroku application to which the build is to be sent.
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_app_name: ${{ secrets.sadafwalliyani-portfolio }}
 
           # (Optional, default: "./")
           # Dockerfile directory.
